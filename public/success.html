@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Successful</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e0ffe0;
+      color: #2f6627;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: flex-end;
+      padding: 1rem 2rem;
+      background-color: #b2ffb2;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #2f6627;
+      font-weight: bold;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .intro {
+      max-width: 800px;
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .actions {
+      display: flex;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .box {
+      padding: 2rem 3rem;
+      background-color: #ffffff;
+      border: 2px solid #2f6627;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+      text-decoration: none;
+      color: #2f6627;
+    }
+
+    .box:hover {
+      background-color: #ccffcc;
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="/profile">Profile</a>
+    <a href="login.html">Logout</a> <!-- replace with actual logout script if backend is used -->
+  </div>
+
+  <div class="container">
+    <div class="intro">
+      <p>Welcome to our platform — your one-stop destination to master problem solving.</p>
+      <p>We offer curated questions, progress tracking, and helpful bookmarks.</p>
+      <p>Whether you're preparing for interviews or brushing up on skills, we've got you covered.</p>
+      <p>Start your journey now and build a strong coding foundation!</p>
+    </div>
+
+    <div class="actions">
+      <a href="start.html" class="box">Start Practising</a>
+      <a href="bookmarks.html" class="box">Bookmark Problems</a>
+    </div>
+  </div>
+</body>
+</html>
