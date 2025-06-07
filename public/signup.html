@@ -3,28 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sign Up</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>ZCoder - Sign Up</title>
+  <link rel="stylesheet" href="auth_style.css">
+  <style>
+    .error-message {
+      color: #ef4444;
+      margin: 1rem 0;
+      padding: 0.5rem;
+      background: rgba(239, 68, 68, 0.1);
+      border-radius: 4px;
+    }
+    .loading {
+      position: relative;
+      pointer-events: none;
+    }
+    .loading::after {
+      content: "";
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+    }
+    @keyframes spin {
+      to { transform: translateY(-50%) rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
 
   <div class="container">
-    <h2>Sign Up</h2>
-    <form action="/signup" method="POST">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+    <div class="logo-section">
+      <div class="logo">ZCoder</div>
+      <div class="tagline">Code. Create. Collaborate.</div>
+      <div class="welcome-text">Join thousands of developers worldwide</div>
+    </div>
 
-      <label for="password">Password:</label>
-      <div class="password-wrapper">
-        <input type="password" id="password" name="password" required>
-        <button type="button" class="toggle-password">Show</button>
+    <h2>Create Account</h2>
+    
+    <form id="signupForm">
+      <!-- Required Account Information -->
+      <div class="form-group">
+        <label for="username">Username*</label>
+        <input type="text" id="username" name="username" placeholder="Choose a username" required>
+        <small class="hint">This will be your unique identifier on ZCoder</small>
       </div>
 
-      <button type="submit" class="login-btn">Create Account</button>
-      <p>Already have an account? <a href="login.html">Login here</a></p>
+      <div class="form-group">
+        <label for="email">Email Address*</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password*</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" name="password" placeholder="Create a strong password" required>
+          <button type="button" class="toggle-password" id="togglePassword">Show</button>
+        </div>
+        <div class="password-strength">
+          <div class="password-strength-fill" id="passwordStrength"></div>
+        </div>
+      </div>
+
+      <div class="form-group confirm-password-group">
+        <label for="confirmPassword">Confirm Password*</label>
+        <div class="password-wrapper">
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" required>
+          <button type="button" class="toggle-password" id="toggleConfirmPassword">Show</button>
+        </div>
+      </div>
+
+      <!-- Profile Information -->
+      <div class="name-fields">
+        <div class="form-group">
+          <label for="firstName">First Name*</label>
+          <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name*</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="avatarInitials">Avatar Initials</label>
+        <div class="initials-container">
+          <input type="text" id="avatarInitials" name="avatarInitials" placeholder="AK" maxlength="2">
+          <div class="initials-preview" id="initialsPreview">AK</div>
+        </div>
+        <small class="hint">First letters of your first and last name</small>
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country</label>
+        <select id="country" name="country" required>
+          <option value="">Select your country</option>
+          <option value="US">United States</option>
+          <option value="UK">United Kingdom</option>
+          <option value="CA">Canada</option>
+          <option value="AU">Australia</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="university">University</label>
+        <input type="text" id="university" name="university" placeholder="Your university">
+      </div>
+
+      <div class="form-group">
+        <label for="major">Major</label>
+        <input type="text" id="major" name="major" placeholder="Your field of study">
+      </div>
+
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the <a href="/terms" target="_blank">Terms of Service</a> and <a href="/privacy" target="_blank">Privacy Policy</a>*</label>
+      </div>
+
+      <div id="errorDisplay" class="error-message" style="display: none;"></div>
+
+      <button type="submit" class="auth-btn">Create ZCoder Account</button>
+      
+      <div class="auth-link">
+        <p>Already have an account? <a href="login.html">Sign in here</a></p>
+      </div>
     </form>
   </div>
 
-  <script src="script.js"></script>
+  <script src="signup.js"></script>
 </body>
 </html>

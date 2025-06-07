@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Coding Questions | ZCoder</title>
+    <link rel="stylesheet" href="problem_style.css">
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="header">
+        <h1>ZCoder</h1>
+    </div>
+    
+    <div class="questions-container">
+        <h2>Select a Coding Question</h2>
+        <div class="questions-grid" id="questions-grid">
+            <!-- Questions will be loaded dynamically -->
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const questionsGrid = document.getElementById('questions-grid');
+            const questionKeys = getAllQuestionKeys();
+            
+            questionKeys.forEach(key => {
+                const question = getQuestion(key);
+                const questionCard = document.createElement('div');
+                questionCard.className = 'question-card';
+                questionCard.innerHTML = `
+                    <h3>${question.title}</h3>
+                    <div class="question-preview">${question.description.substring(0, 100)}...</div>
+                    <button onclick="window.location.href='test.html?question=${key}'">Solve</button>
+                `;
+                questionsGrid.appendChild(questionCard);
+            });
+        });
+    </script>
+</body>
+</html>

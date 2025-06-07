@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Coding Practice | ZCoder</title>
+    <link rel="stylesheet" href="problem_style.css">
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    
+</head>
+<body>
+    
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="header">
+        <h1>ZCoder</h1>
+        <div class="question-selector">
+            <select id="question-select" onchange="loadQuestion()">
+                <option value="">Select a Question</option>
+                <option value="fizzbuzz">FizzBuzz</option>
+                <option value="factorial">Factorial</option>
+                <option value="palindrome">Palindrome Check</option>
+                <option value="fibonacci">Fibonacci Sequence</option>
+            </select>
+            <button id="bookmark-btn" onclick="toggleBookmark()">☆</button>
+        </div>
+        <button class="back-button" onclick="window.location.href='problem_list.html'">Back to Questions</button>
+    </div>
+    
+    <div class="container" id="main-container">
+        <div class="question-panel">
+            <div class="question-content" id="question-content">
+                <h2>Welcome to ZCoder</h2>
+                <p>Please select a question from the dropdown above to get started.</p>
+            </div>
+        </div>
+        
+        <div class="editor-panel">
+            <textarea id="code-editor" spellcheck="false" placeholder="Select a question to see the starter code..."></textarea>
+            <div class="editor-controls">
+                <button id="run-button" onclick="runCode()" disabled>Compile & Run</button>
+                <span id="loading-spinner" class="loading-spinner" style="display: none;"></span>
+            </div>
+            <div class="output-panel">
+                <div class="output-title">Output:</div>
+                <div id="output-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="comments-section">
+        <h3>Live Discussion</h3>
+        <div id="comments-container">
+
+        </div>
+        <textarea 
+            id="new-comment" 
+            placeholder="Add your comment..."
+            onclick="this.placeholder=''"
+            onblur="if(this.value==='')this.placeholder='Add your comment...'">
+        </textarea>
+        <button id="post-comment-btn">Post Comment</button>
+    </div> 
+
+    <script src="questions.js"></script>
+    <script src="problem_script.js"></script>
+</body>
+</html>
